@@ -41,8 +41,11 @@ function getStringLength(value) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
+  if (value === null) {
+    return false;
+  }
   if (typeof value === 'object') {
-    return typeof valueOf(value) === 'string';
+    return typeof value.valueOf() === 'string';
   }
   return typeof value === 'string';
 }
@@ -60,7 +63,7 @@ function isString(value) {
  *   concatenateStrings('', 'bb') => 'bb'
  */
 function concatenateStrings(value1, value2) {
-  return value1 + value2;
+  return value1.concat(value2);
 }
 
 /**
@@ -74,8 +77,11 @@ function concatenateStrings(value1, value2) {
  *   getFirstChar('cat') => 'c'
  *   getFirstChar('') => ''
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(value) {
+  if (value.length === 0) {
+    return '';
+  }
+  return value.charAt(0);
 }
 
 /**
