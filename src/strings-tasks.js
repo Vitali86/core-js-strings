@@ -335,16 +335,12 @@ function containsSubstring(str, substring) {
  */
 function countVowels(str) {
   const vowels = 'aeiouyAEIOUY';
-  const arr = [];
   let countOfVowels = 0;
   for (let i = 0; i < str.length; i += 1) {
-    arr.push(str[i]);
-  }
-  arr.forEach((element) => {
-    if (vowels.search(element)) {
+    if (vowels.indexOf(str[i]) >= 0) {
       countOfVowels += 1;
     }
-  });
+  }
   return countOfVowels;
 }
 
