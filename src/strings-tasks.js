@@ -357,8 +357,16 @@ function countVowels(str) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let newStr = str;
+  newStr = newStr.trim();
+  newStr = newStr.toLowerCase();
+  newStr = newStr.replaceAll(' ', '');
+  newStr = newStr.replaceAll(',', '');
+  newStr = newStr.replaceAll('.', '');
+  newStr = newStr.replaceAll('!', '');
+  newStr = newStr.replaceAll('?', '');
+  return newStr.split('').reverse().join('') === newStr;
 }
 
 /**
@@ -373,8 +381,12 @@ function isPalindrome(/* str */) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const arr = sentence.split(' ');
+  arr.sort(function sort(a, b) {
+    return b.length - a.length;
+  });
+  return arr[0];
 }
 
 /**
@@ -387,8 +399,13 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const arr = str.split(' ');
+  const reversArr = [];
+  for (let i = 0; i < arr.length; i += 1) {
+    reversArr.push(arr[i].split('').reverse().join(''));
+  }
+  return reversArr.join(' ');
 }
 
 /**
@@ -402,8 +419,17 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  const arr = str.split('');
+  const invArr = [];
+  for (let i = 0; i < str.length; i += 1) {
+    invArr.push(
+      arr[i] === arr[i].toUpperCase()
+        ? arr[i].toLowerCase()
+        : arr[i].toUpperCase()
+    );
+  }
+  return invArr.join('');
 }
 
 /**
